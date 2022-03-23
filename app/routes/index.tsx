@@ -1,5 +1,13 @@
-import { Heading } from "@chakra-ui/react";
+import { IndexHero } from "~/components/index/IndexHero";
+import { IndexFeatures } from "~/components/index/IndexFeatures";
+import { IndexFooter } from "~/components/index/IndexFooter";
 
 export default function Index() {
-  return <Heading textColor="primary.600">Using themed Chakra UI!</Heading>;
+  return (
+    <>
+      <IndexHero />
+      <IndexFeatures />
+      <IndexFooter />
+    </>
+  );
 }

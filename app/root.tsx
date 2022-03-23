@@ -9,6 +9,8 @@ import {
   ScrollRestoration,
   useCatch,
 } from "remix";
+import Error from "./components/Error";
+import Root from "./components/Root";
 import { primaryTheme } from "./theme";
 
 export const meta: MetaFunction = () => ({
@@ -47,18 +49,17 @@ function Document({
 }
 
 export default function App() {
-  // throw new Error("💣💥 Booooom");
-
   return (
     <Document>
       <ChakraProvider theme={primaryTheme}>
-        <Outlet />
+        <Root>
+          <Outlet />
+        </Root>
       </ChakraProvider>
     </Document>
   );
 }
 
-// How ChakraProvider should be used on CatchBoundary
 export function CatchBoundary() {
   const caught = useCatch();
 
@@ -66,25 +67,18 @@ export function CatchBoundary() {
     <Document title={`${caught.status} ${caught.statusText}`}>
       <ChakraProvider theme={primaryTheme}>
         <Box>
-          <Heading as="h1" bg="purple.600">
-            [CatchBoundary]: {caught.status} {caught.statusText}
-          </Heading>
+          <Error title={`${caught.status}`} message={caught.statusText} />
         </Box>
       </ChakraProvider>
     </Document>
   );
 }
 
-// How ChakraProvider should be used on ErrorBoundary
 export function ErrorBoundary({ error }: { error: Error }) {
   return (
     <Document title="Error!">
       <ChakraProvider theme={primaryTheme}>
-        <Box>
-          <Heading as="h1" bg="blue.500">
-            [ErrorBoundary]: There was an error: {error.message}
-          </Heading>
-        </Box>
+        <Error title="An error ocurred :(" message={error.message} />
       </ChakraProvider>
     </Document>
   );
