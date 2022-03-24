@@ -1,7 +1,11 @@
 [build]
-  command = "remix build"
+  command = "npx prisma db push && remix build"
   publish = "public"
 
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@remix-run/react", "react", "react-dom"]
+  
 [dev]
   command = "remix watch"
   port = 3000
