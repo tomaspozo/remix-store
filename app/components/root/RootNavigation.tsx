@@ -50,7 +50,13 @@ export default function RootNavigation() {
         </Stack>
         <ButtonGroup spacing={4} size="sm">
           {LeftNavigation.map((route) => (
-            <Button variant="solid" key={route.name} as={Link} to={route.path}>
+            <Button
+              variant="solid"
+              key={route.name}
+              as={Link}
+              to={route.path}
+              prefetch="intent"
+            >
               {route.name}
             </Button>
           ))}
