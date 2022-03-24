@@ -41,6 +41,7 @@ export default function RootNavigation() {
                 key={route.name}
                 colorScheme={isActive(route.path) ? "blue" : "white"}
                 to={route.path}
+                prefetch="render"
               >
                 {route.name}
               </Button>
