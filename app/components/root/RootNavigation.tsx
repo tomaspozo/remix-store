@@ -36,9 +36,9 @@ export default function RootNavigation() {
           <ButtonGroup colorScheme="blue" spacing={4} size="sm">
             {RightNavigation.map((route) => (
               <Button
+                as={Link}
                 variant="ghost"
                 key={route.name}
-                as={Link}
                 colorScheme={isActive(route.path) ? "blue" : "white"}
                 to={route.path}
               >

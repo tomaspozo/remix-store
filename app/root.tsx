@@ -52,9 +52,7 @@ export default function App() {
   return (
     <Document>
       <ChakraProvider theme={primaryTheme}>
-        <Root>
-          <Outlet />
-        </Root>
+        <Root />
       </ChakraProvider>
     </Document>
   );

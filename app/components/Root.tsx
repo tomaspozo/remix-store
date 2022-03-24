@@ -1,13 +1,15 @@
 import { Box, Container } from "@chakra-ui/react";
 import RootNavigation from "./root/RootNavigation";
-import { ReactElement } from "react";
+import { Outlet } from "remix";
 
-export default function Root({ children }: { children: ReactElement }) {
+export default function Root() {
   return (
     <Box>
       <Container maxW="6xl">
         <RootNavigation />
-        <Box px={6}>{children}</Box>
+        <Box px={6}>
+          <Outlet />
+        </Box>
       </Container>
     </Box>
   );
