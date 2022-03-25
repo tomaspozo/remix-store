@@ -17,7 +17,7 @@ export const IndexHero = () => (
       <Stack spacing={{ base: "8", md: "10" }}>
         <Stack spacing={{ base: "4", md: "5" }} align="center">
           <Heading size={useBreakpointValue({ base: "md", md: "lg" })}>
-            Serverless: Remix + MongoDB
+            Remix Store
           </Heading>
           <Alert status="warning">
             <AlertIcon />
@@ -25,7 +25,7 @@ export const IndexHero = () => (
           </Alert>
           <Text color="muted" maxW="2xl" textAlign="center" fontSize="xl">
             A Remix web application deployed on Netlify + data persisted on
-            MongoDB Serverless
+            MongoDB
           </Text>
         </Stack>
         <Stack
@@ -38,7 +38,7 @@ export const IndexHero = () => (
             colorScheme="blue"
             variant="solid"
             size="lg"
-            href="https://github.com/tomaspozo/remix-mongodb-netlify"
+            href="https://github.com/tomaspozo/remix-store"
             target="_blank"
           >
             View on Github

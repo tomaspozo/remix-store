@@ -2,7 +2,7 @@ import { Box, Stack, Text, ButtonGroup, IconButton } from "@chakra-ui/react";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { Logo } from "../shared/Logo";
 
-export const IndexFooter = () => (
+export const RootFooter = () => (
   <Box as="footer" role="contentinfo" py={{ base: "6", md: "8" }}>
     <Stack spacing={{ base: "4", md: "5" }}>
       <Stack justify="space-between" direction="row" align="center">

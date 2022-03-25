@@ -1,6 +1,7 @@
 import { Box, Container } from "@chakra-ui/react";
 import RootNavigation from "./root/RootNavigation";
 import { Outlet } from "remix";
+import { RootFooter } from "./root/RootFooter";
 
 export default function Root() {
   return (
@@ -10,6 +11,7 @@ export default function Root() {
         <Box px={6}>
           <Outlet />
         </Box>
+        <RootFooter />
       </Container>
     </Box>
   );

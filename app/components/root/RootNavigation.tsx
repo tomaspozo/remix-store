@@ -13,6 +13,7 @@ import { Logo } from "../shared/Logo";
 
 const RightNavigation = [
   { path: "/", name: "Home" },
+  { path: "/about", name: "About" },
   { path: "/products", name: "Products" },
 ];
 

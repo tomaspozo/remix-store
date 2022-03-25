@@ -20,20 +20,20 @@ export const IndexFeatures = () => (
         <InlineLink href="https://chakra-ui.com">Chakra UI</InlineLink> free
         components. Including Dark mode.
       </Feature>
-      <Feature title="Lightning fast on Netlify" icon={<FcFlashOn />}>
+      <Feature title="Deployed on Netlify" icon={<FcFlashOn />}>
         Automatically deploy on{" "}
         <InlineLink href="https://www.netlify.com">Netlify</InlineLink>{" "}
         functions with every code push.
       </Feature>
-      <Feature title="MongoDB Serverless" label="Comming soon" icon={<FcAcceptDatabase />}>
+      <Feature title="MongoDB" icon={<FcAcceptDatabase />}>
         Use <InlineLink href="https://prisma.io">Prisma</InlineLink> to define
         your data model and interact with{" "}
-        <InlineLink href="https://www.mongodb.com/cloud/atlas/serverless">
+        <InlineLink href="https://www.mongodb.com/cloud/atlas">
           MongoDB
         </InlineLink>{" "}
         as your backend database.
       </Feature>
-      <Feature title="Firebase Auth" label="Comming soon" icon={<FcPrivacy />}>
+      <Feature title="Authentication" label="Comming soon" icon={<FcPrivacy />}>
         Use{" "}
         <InlineLink href="https://firebase.google.com/docs/auth">
           Firebase Auth
