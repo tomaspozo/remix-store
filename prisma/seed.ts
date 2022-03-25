@@ -2,11 +2,9 @@ import { Prisma, PrismaClient } from "@prisma/client";
 const db = new PrismaClient();
 
 async function seed() {
-  await Promise.all(
-    getProducts().map((data) => {
-      return db.product.create({ data });
-    })
-  );
+  const products = getProducts();
+
+  db.product.createMany({ data: products });
 }
 
 seed();
