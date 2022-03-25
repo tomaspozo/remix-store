@@ -4,7 +4,7 @@ const db = new PrismaClient();
 async function seed() {
   const products = getProducts();
 
-  db.product.createMany({ data: products });
+  await db.product.createMany({ data: products });
 }
 
 seed();
