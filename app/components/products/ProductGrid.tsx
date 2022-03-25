@@ -1,5 +1,4 @@
 import { Flex, SimpleGrid, SimpleGridProps } from "@chakra-ui/react";
-import { useMemo, Children, isValidElement } from "react";
 import Pagination from "./Pagination";
 
 export const ProductGrid = (props: SimpleGridProps) => {
