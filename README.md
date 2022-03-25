@@ -37,6 +37,11 @@ npm install
 npx prisma generate
 ```
 
+4. Seed your database. This will create documents into the `products` collection by running the script in `prisma/seed.ts` *Note: you can customize this script to add different records as long as they follow the given schema.*
+```sh
+npx prisma db seed
+```
+
 ### Development
 Start the development server
 ```sh
