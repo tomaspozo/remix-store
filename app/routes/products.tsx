@@ -15,7 +15,7 @@ type LoaderData = {
 export const loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
   const page = parseInt(url.searchParams.get("page") || "1");
-  const pageSize = 4;
+  const pageSize = 8;
 
   const [products, totalCount] = await Promise.all([
     await db.product.findMany({
@@ -45,10 +45,9 @@ export default function Products() {
     >
       {state === "loading" ? (
         <ProductGrid>
-          <ProductSkeleton />
-          <ProductSkeleton />
-          <ProductSkeleton />
-          <ProductSkeleton />
+          {Array.from(Array(6).keys()).map((v) => (
+            <ProductSkeleton key={v} />
+          ))}
         </ProductGrid>
       ) : (
         <ProductGrid>
