@@ -10,6 +10,7 @@ import {
   Text,
   Link,
 } from "@chakra-ui/react";
+import { Link as RemixLink } from "remix";
 
 export const IndexHero = () => (
   <Box as="section">
@@ -34,9 +35,18 @@ export const IndexHero = () => (
           justify="center"
         >
           <Button
-            as={Link}
+            as={RemixLink}
             colorScheme="blue"
             variant="solid"
+            size="lg"
+            to="/about"
+          >
+            Learn more
+          </Button>
+          <Button
+            as={Link}
+            colorScheme="blue"
+            variant="ghost"
             size="lg"
             href="https://github.com/tomaspozo/remix-store"
             target="_blank"

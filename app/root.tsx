@@ -1,10 +1,9 @@
-import { ChakraProvider, Box, Heading } from "@chakra-ui/react";
+import { ChakraProvider, Box } from "@chakra-ui/react";
 import type { MetaFunction } from "remix";
 import {
   Links,
   LiveReload,
   Meta,
-  Outlet,
   Scripts,
   ScrollRestoration,
   useCatch,
@@ -20,7 +19,7 @@ export const meta: MetaFunction = () => ({
 
 function Document({
   children,
-  title = "Remix + MongoDB",
+  title = "Remix Store | An online store made with Remix",
 }: {
   children: React.ReactNode;
   title?: string;

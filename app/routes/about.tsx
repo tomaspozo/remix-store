@@ -8,6 +8,11 @@ import {
   Text,
   Link,
 } from "@chakra-ui/react";
+import { MetaFunction } from "remix";
+
+export const meta: MetaFunction = () => ({
+  title: "About",
+});
 
 export default function About() {
   return (

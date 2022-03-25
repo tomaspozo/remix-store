@@ -2,9 +2,19 @@ import { Box } from "@chakra-ui/react";
 import { Product } from "@prisma/client";
 import { ProductCard } from "~/components/products/ProductCard";
 import { ProductGrid } from "~/components/products/ProductGrid";
-import { json, LoaderFunction, useLoaderData, useTransition } from "remix";
+import {
+  json,
+  LoaderFunction,
+  MetaFunction,
+  useLoaderData,
+  useTransition,
+} from "remix";
 import { db } from "~/utils/db.server";
 import { ProductSkeleton } from "~/components/products/ProductSkeleton";
+
+export const meta: MetaFunction = () => ({
+  title: "Products Catalogue",
+});
 
 type LoaderData = {
   products: Array<Product>;
