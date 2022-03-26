@@ -1,5 +1,5 @@
 import { Flex, SimpleGrid, SimpleGridProps } from "@chakra-ui/react";
-import Pagination from "./Pagination";
+import Pagination from "~/components/shared/Pagination";
 
 export const ProductGrid = (props: SimpleGridProps) => {
   return (
