@@ -5,7 +5,7 @@ export const ProductGrid = (props: SimpleGridProps) => {
   return (
     <Flex direction="column">
       <SimpleGrid
-        columns={4}
+        columns={{ base: 2, md: 4 }}
         columnGap={{ base: "4", md: "6" }}
         rowGap={{ base: "8", md: "10" }}
         {...props}
