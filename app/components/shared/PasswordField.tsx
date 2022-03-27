@@ -1,5 +1,6 @@
 import {
   FormControl,
+  FormErrorMessage,
   FormLabel,
   IconButton,
   Input,
@@ -26,7 +27,7 @@ export const PasswordField = forwardRef<HTMLInputElement, InputProps>(
     };
 
     return (
-      <FormControl>
+      <FormControl isInvalid={props.isInvalid}>
         <FormLabel htmlFor="password">Password</FormLabel>
         <InputGroup>
           <Input
@@ -47,6 +48,7 @@ export const PasswordField = forwardRef<HTMLInputElement, InputProps>(
             />
           </InputRightElement>
         </InputGroup>
+        <FormErrorMessage>{props["aria-errormessage"]}</FormErrorMessage>
       </FormControl>
     );
   }
