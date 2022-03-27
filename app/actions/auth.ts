@@ -6,14 +6,18 @@ import { createUser, getUserByEmail, verifyLogin } from "~/models/user.server";
 import { validateEmail } from "~/helpers";
 
 export interface ActionData {
+  formError?: string;
   errors?: {
     name?: string;
     email?: string;
     password?: string;
+    terms?: string;
   };
 }
 
 export const loginAction: ActionFunction = async ({ request }) => {
+  const errors: ActionData["errors"] = {};
+
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
@@ -21,31 +25,24 @@ export const loginAction: ActionFunction = async ({ request }) => {
   const remember = formData.get("remember");
 
   if (!validateEmail(email)) {
-    return json<ActionData>(
-      { errors: { email: "Email is invalid" } },
-      { status: 400 }
-    );
+    errors["email"] = "Email is invalid";
   }
 
-  if (typeof password !== "string") {
-    return json<ActionData>(
-      { errors: { password: "Password is required" } },
-      { status: 400 }
-    );
+  if (typeof password !== "string" || password.length === 0) {
+    errors["password"] = "Password is required";
+  } else if (password.length < 8) {
+    errors["password"] = "Password is too short";
   }
 
-  if (password.length < 8) {
-    return json<ActionData>(
-      { errors: { password: "Password is too short" } },
-      { status: 400 }
-    );
+  if (Object.keys(errors).length > 0) {
+    return json<ActionData>({ errors }, { status: 400 });
   }
 
-  const user = await verifyLogin(email, password);
+  const user = await verifyLogin(email as string, password as string);
 
   if (!user) {
     return json<ActionData>(
-      { errors: { email: "Invalid email or password" } },
+      { formError: "Invalid email or password" },
       { status: 400 }
     );
   }
@@ -65,21 +62,25 @@ export const registerAction: ActionFunction = async ({ request }) => {
   const name = formData.get("name");
   const email = formData.get("email");
   const password = formData.get("password");
-  const termsAndConditions = formData.get("termsAndConditions");
+  const terms = formData.get("terms");
   const redirectTo = formData.get("redirectTo");
 
   if (!validateEmail(email)) {
     errors["email"] = "Email is invalid";
   }
 
-  if (typeof name !== "string") {
+  if (typeof name !== "string" || name.length === 0) {
     errors["name"] = "Name is required";
   }
 
-  if (typeof password !== "string") {
+  if (typeof password !== "string" || password.length === 0) {
     errors["password"] = "Password is required";
   } else if (password.length < 8) {
     errors["password"] = "Password is too short";
+  }
+
+  if (typeof terms !== "string") {
+    errors["terms"] = "You must accept our terms of service";
   }
 
   if (Object.keys(errors).length > 0) {
@@ -89,7 +90,7 @@ export const registerAction: ActionFunction = async ({ request }) => {
   const existingUser = await getUserByEmail(email as string);
   if (existingUser) {
     return json<ActionData>(
-      { errors: { email: "A user already exists with this email" } },
+      { formError: "A user already exists with this email" },
       { status: 400 }
     );
   }
