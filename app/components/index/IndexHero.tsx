@@ -36,7 +36,7 @@ export const IndexHero = () => (
         >
           <Button
             as={RemixLink}
-            colorScheme="blue"
+            colorScheme="primary"
             variant="solid"
             size="lg"
             to="/about"
@@ -45,7 +45,7 @@ export const IndexHero = () => (
           </Button>
           <Button
             as={Link}
-            colorScheme="blue"
+            colorScheme="primary"
             variant="ghost"
             size="lg"
             href="https://github.com/tomaspozo/remix-store"
