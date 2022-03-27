@@ -51,7 +51,7 @@ export default function About() {
           >
             <Button
               as={Link}
-              colorScheme="blue"
+              colorScheme="primary"
               variant="solid"
               size="lg"
               href="https://github.com/tomaspozo/remix-store"

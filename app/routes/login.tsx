@@ -12,11 +12,17 @@ import {
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { MetaFunction } from "remix";
+import { Form, Link, MetaFunction } from "remix";
 import { PasswordField } from "~/components/shared/PasswordField";
+import { loginLoader } from "~/loaders/auth";
+import { loginAction } from "~/actions/auth";
+
+export const loader = loginLoader;
+
+export const action = loginAction;
 
 export const meta: MetaFunction = () => ({
-  title: "Login to your account | Comming soon",
+  title: "Login to your account",
 });
 
 export default function Login() {
@@ -34,33 +40,42 @@ export default function Login() {
             </Heading>
             <HStack spacing="1" justify="center">
               <Text color="muted">Don't have an account?</Text>
-              <Button variant="link" colorScheme="blue">
+              <Button
+                as={Link}
+                variant="link"
+                colorScheme="primary"
+                to="/register"
+              >
                 Sign up
               </Button>
             </HStack>
           </Stack>
         </Stack>
         <Box>
-          <Stack spacing="6">
-            <Stack spacing="5">
-              <FormControl>
-                <FormLabel htmlFor="email">Email</FormLabel>
-                <Input id="email" type="email" />
-              </FormControl>
-              <PasswordField />
-            </Stack>
-            <HStack justify="space-between">
-              <Checkbox name="remember" defaultIsChecked>
-                Remember me
-              </Checkbox>
-              <Button variant="link" colorScheme="primary" size="sm">
-                Forgot password?
-              </Button>
-            </HStack>
+          <Form method="post">
             <Stack spacing="6">
-              <Button colorScheme="primary">Sign in</Button>
+              <Stack spacing="5">
+                <FormControl>
+                  <FormLabel htmlFor="email">Email</FormLabel>
+                  <Input id="email" name="email" type="email" />
+                </FormControl>
+                <PasswordField />
+              </Stack>
+              <HStack justify="space-between">
+                <Checkbox name="remember" defaultIsChecked>
+                  Remember me
+                </Checkbox>
+                <Button variant="link" colorScheme="primary" size="sm">
+                  Forgot password?
+                </Button>
+              </HStack>
+              <Stack spacing="6">
+                <Button type="submit" colorScheme="primary">
+                  Sign in
+                </Button>
+              </Stack>
             </Stack>
-          </Stack>
+          </Form>
         </Box>
       </Stack>
     </Container>

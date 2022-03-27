@@ -29,23 +29,23 @@ export const PasswordField = forwardRef<HTMLInputElement, InputProps>(
       <FormControl>
         <FormLabel htmlFor="password">Password</FormLabel>
         <InputGroup>
-          <InputRightElement>
-            <IconButton
-              variant="link"
-              aria-label={isOpen ? "Mask password" : "Reveal password"}
-              icon={isOpen ? <HiEyeOff /> : <HiEye />}
-              onClick={onClickReveal}
-            />
-          </InputRightElement>
           <Input
             id="password"
             ref={mergeRef}
             name="password"
             type={isOpen ? "text" : "password"}
             autoComplete="current-password"
-            required
             {...props}
           />
+          <InputRightElement>
+            <IconButton
+              type="button"
+              variant="link"
+              aria-label={isOpen ? "Mask password" : "Reveal password"}
+              icon={isOpen ? <HiEyeOff /> : <HiEye />}
+              onClick={onClickReveal}
+            />
+          </InputRightElement>
         </InputGroup>
       </FormControl>
     );
