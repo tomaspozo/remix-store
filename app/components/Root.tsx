@@ -10,7 +10,7 @@ export default function Root() {
 
   return (
     <Box>
-      {!isLoading ? <RootLoader /> : null}
+      {isLoading ? <RootLoader /> : null}
       <Container maxW="6xl">
         <RootNavigation />
         <Box px={6}>
