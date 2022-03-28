@@ -15,8 +15,9 @@
     "seed": "node --require esbuild-register prisma/seed.ts"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.8.6",
-    "@emotion/react": "^11.8.1",
+    "@chakra-ui/react": "^1.8.7",
+    "@emotion/react": "^11.8.2",
+    "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.8.1",
     "@netlify/functions": "^0.10.0",
     "@prisma/client": "^3.11.0",
